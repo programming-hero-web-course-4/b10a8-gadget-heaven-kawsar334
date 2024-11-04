@@ -48,8 +48,8 @@ const CartWishlistProvider = ({ children }) => {
             return updatedWishlist;
         });
     };
+    
 
-    // Purchase items (clear cart after purchase)
     const Purchase = () => {
         localStorage.removeItem('cart');
         setCart([]);
@@ -70,7 +70,7 @@ const CartWishlistProvider = ({ children }) => {
     );
 };
 
-// Custom hook to use CartWishlistContext
+
 export const useCartWishlist = () => {
     return useContext(CartWishlistContext);
 };

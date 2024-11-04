@@ -5,7 +5,7 @@ import { useCartWishlist } from '../context/Contextt';
 const Navbar = () => {
 
   const location = useLocation();
-  const { cart, wishlist } = useCartWishlist();
+  // const { cart, wishlist } = useCartWishlist();
 
 
   return (

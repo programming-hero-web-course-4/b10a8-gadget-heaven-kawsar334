@@ -12,6 +12,7 @@ import Layout from './pages/Layouts/Layout';
 import Wishlist from './pages/Wishlist';
 import Login from './pages/Login';
 import About from './pages/About';
+import Statistics from './pages/Statistics';
 
 PageTitle
 function App() {

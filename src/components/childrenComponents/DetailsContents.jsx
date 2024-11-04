@@ -1,15 +1,26 @@
 import useFetch from '../../data/UseFetch';
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import CartContext from '../../context/CartContext';
 
 const DetailsContents = () => {
+
+  const {
+    cart,
+    wishlist,
+    purchase,
+    addToCart,
+    addToWishlist,
+    addToParchase,
+    descendingProductList,
+    sortedProduct,
+  } = CartContext()
   const id = useLocation().pathname.split("/")[2];
   const [product, setProduct] = useState({});
 
   const [data, setData] = useState([]);
 
-
-  console.log(product)
+// 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -51,9 +62,9 @@ const DetailsContents = () => {
         </div>
         <div className=' w-full flex justify-start items-center gap-4  py-1'>
          
-          <button className='bg-[#9538E2] w-[80%] md:w-max border rounded-full py-1 px-3 text-[white]  flex justify-center items-center gap-2'>Add To Card  <i className="fa-solid fa-cart-arrow-down "></i></button>
+          <button className='bg-[#9538E2] w-[80%] md:w-max border rounded-full py-1 px-3 text-[white]  flex justify-center items-center gap-2' onClick={()=>addToCart(product)}>Add To Card  <i className="fa-solid fa-cart-arrow-down "></i></button>
           
-          <button> <i className="fa-regular fa-heart text-xl"></i></button>
+          <button onClick={()=>addToWishlist(product)}> <i className="fa-regular fa-heart text-xl"></i></button>
 
         </div>
       </div>

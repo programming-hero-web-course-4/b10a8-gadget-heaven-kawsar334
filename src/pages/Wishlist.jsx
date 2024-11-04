@@ -2,9 +2,21 @@ import React from 'react'
 import { Footer } from '../components/Footer'
 import DashboardHero from '../components/dashboardComponents/DashboardHero'
 import WishlistHeroContents from '../components/dashboardComponents/WishlistHeroContents'
-
+import CartContext from '../context/CartContext';
 const Wishlist = () => {
     
+  const {
+    cart,
+    wishlist,
+    purchase,
+    addToCart,
+    addToWishlist,
+    addToParchase,
+    descendingProductList,
+    sortedProduct,
+  } = CartContext()
+
+ 
   return (
       <div className='w-full'>
           <DashboardHero Contents={WishlistHeroContents}/>

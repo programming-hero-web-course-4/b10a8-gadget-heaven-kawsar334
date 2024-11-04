@@ -6,7 +6,6 @@ export const useCartWishlist = () => useContext(CartWishlistContext);
 
 export const CartWishlistProvider = ({ children }) => {
     const [cart, setCart] = useState(() => {
-        // Retrieve cart from localStorage, if it exists
         const storedCart = localStorage.getItem('cart');
         return storedCart ? JSON.parse(storedCart) : [];
     });
