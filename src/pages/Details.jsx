@@ -12,7 +12,6 @@ const Details = () => {
 
           <div className=' mt-[200px] md:mt-[150px] lg:mt-[100px] '>
           </div>
-
     </div>
   )
 }

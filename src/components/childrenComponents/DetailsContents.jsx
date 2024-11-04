@@ -49,7 +49,13 @@ const DetailsContents = () => {
         <div className="w-[35%]">
           <p>Rating : {product?.rating}⭐  </p>
         </div>
-        <button className='bg-[#9538E2] w-full md:w-max border rounded-full py-1 px-3 text-[white] '>Add To Card</button>
+        <div className=' w-full flex justify-start items-center gap-4  py-1'>
+         
+          <button className='bg-[#9538E2] w-[80%] md:w-max border rounded-full py-1 px-3 text-[white]  flex justify-center items-center gap-2'>Add To Card  <i className="fa-solid fa-cart-arrow-down "></i></button>
+          
+          <button> <i className="fa-regular fa-heart text-xl"></i></button>
+
+        </div>
       </div>
     </div>
   )

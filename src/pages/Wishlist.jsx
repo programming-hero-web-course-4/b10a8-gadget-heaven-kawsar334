@@ -50,7 +50,6 @@ const Wishlist = () => {
                   </button>
               </div>
           </div>
-          <Footer/>
       </div>
   )
 }

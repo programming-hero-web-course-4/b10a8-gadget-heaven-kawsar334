@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link, useLocation } from "react-router-dom";
+import { useCartWishlist } from '../context/Contextt';
 
 const Navbar = () => {
 
   const location = useLocation();
+  const { cart, wishlist } = useCartWishlist();
 
 
   return (
@@ -48,7 +50,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end flex justify-center items-center gap-3">
-          
+      
         <Link to="/dashboard/cart" className="relative mr-2">
           <i className="fa-solid fa-cart-arrow-down text-xl"></i>
           <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">

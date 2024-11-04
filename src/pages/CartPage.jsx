@@ -61,7 +61,6 @@ const CartPage = () => {
                   </button>
               </div>
         </div>
-        <Footer/>
     </div>
   )
 }
