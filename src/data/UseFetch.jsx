@@ -9,7 +9,7 @@ const useFetch = () => {
         const fetchData = async () => {
             setLoading(true)
             try {
-                const response = await fetch("./data.json");
+                const response = await fetch("./product.json");
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -21,6 +21,7 @@ const useFetch = () => {
                
 
             } catch (err) {
+                console.log(err)
                 setError(err.message);
             } finally {
                 setLoading(false);

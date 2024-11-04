@@ -11,6 +11,7 @@ import CartPage from './pages/CartPage';
 import Layout from './pages/Layouts/Layout';
 import Wishlist from './pages/Wishlist';
 import Login from './pages/Login';
+import About from './pages/About';
 
 PageTitle
 function App() {
@@ -36,7 +37,14 @@ function App() {
             </PageTitle>
           ),
         },
-        
+        {
+          path: "about",
+          element: (
+            <PageTitle title="About page">
+              <About />
+            </PageTitle>
+          ),
+        },
      
       ],
     },

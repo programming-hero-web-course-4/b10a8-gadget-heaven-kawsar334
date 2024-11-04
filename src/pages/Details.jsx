@@ -10,9 +10,7 @@ const Details = () => {
     <div className=''>
           <Hero Contents={DetailsContents}/>
 
-          <div className=' mt-[300px] md:mt-[150px] lg:mt-[130px]'>
-                <h1 className='text-4xl'>Details contents</h1>
-
+          <div className=' mt-[200px] md:mt-[150px] lg:mt-[100px] '>
           </div>
 
     </div>
