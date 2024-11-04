@@ -8,7 +8,6 @@ const Dashboard = () => {
     return (
         <div>
             <Navbar />
-            <DashboardHero/>
             <Outlet />
             <Footer />
 

@@ -48,11 +48,20 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end flex justify-center items-center gap-3">
-        <Link to="/dashboard/cart" className=""><i class="fa-solid fa-cart-arrow-down"></i></Link>
-        <Link to="/dashboard/wishlist" className=""><i class="fa-regular fa-heart"></i></Link>
+          
+        <Link to="/dashboard/cart" className="relative mr-2">
+          <i className="fa-solid fa-cart-arrow-down text-xl"></i>
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+            3
+          </span>
+        </Link>
 
-      
-       
+        <Link to="/dashboard/wishlist" className="relative">
+          <i className="fa-regular fa-heart text-xl"></i>
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+            5
+          </span>
+        </Link>
 
       </div>
     </div>

@@ -1,8 +1,6 @@
 import React from 'react'
 
 const Sidebar = ({ sidebarItems, handleCat }) => {
-
-
   return (
     <div className='w-full md:w-[20%] shadow  rounded p-3 mt-10'>
       <h1 className='text-xl font-semibold py-3 w-full'>Filter by categories </h1>

@@ -1,10 +1,16 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import { Footer } from '../components/Footer'
+import DashboardHero from '../components/dashboardComponents/DashboardHero'
+import CartHeroContents from '../components/dashboardComponents/CartHeroContents'
 
 const CartPage = () => {
+
+
+    
   return (
     <div className='w-full'>
+          <DashboardHero Contents={CartHeroContents}/>
         <div className='flex justify-between items-start md:items-center w-[90%] md:w-[80%] m-auto my-7 flex-col md:flex-row '>
             <h2 className='text-2xl font-bold'>Cart</h2>
               <div className='flex justify-center items-start md:items-center gap-3  p-1 flex-col md:flex-row '>

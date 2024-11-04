@@ -17,7 +17,7 @@ const Product = ({item}) => {
           <NavLink to={`/details/${item?.product_id}`} className="border rounded-[20px] px-5 py-1 my-1 ">View Details</NavLink >
         </div>
       </div>
-    </div>
+    </div> 
   )
 }
 
