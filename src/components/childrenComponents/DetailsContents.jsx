@@ -15,6 +15,8 @@ const DetailsContents = () => {
     descendingProductList,
     sortedProduct,
   } = CartContext()
+
+
   const id = useLocation().pathname.split("/")[2];
   const [product, setProduct] = useState({});
   const [data, setData] = useState([]);
@@ -37,6 +39,12 @@ const DetailsContents = () => {
       setProduct(product);
     }
   }, [id, data]);
+
+
+  let title = product?.product_title
+    useEffect(() => {
+      document.title = title;
+    }, [title]);
 
   return (
     <div className="w-full md:w-[80%]  h-max md:h-[400px]  flex justify-center items-center flex-col md:flex-row shadow  gap-4 absolute  left-[50%] top-[240px] transform translate-x-[-50%] border-[2px] bg-[white] border-[#9538E2] p-5 rounded-[20px] ">

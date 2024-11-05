@@ -26,7 +26,7 @@ function App() {
         {
           path: "/",
           element: (
-            <PageTitle title="Home page">
+            <PageTitle title="Home">
               <Home />
             </PageTitle>
           ),
@@ -34,15 +34,13 @@ function App() {
         {
           path: "details/:id",
           element: (
-            <PageTitle title="Details page">
              <Details/>
-            </PageTitle>
           ),
         },
         {
           path: "about",
           element: (
-            <PageTitle title="About page">
+            <PageTitle title="About Us">
               <About />
             </PageTitle>
           ),
@@ -87,7 +85,7 @@ function App() {
     },
     {
       path: "/login",
-      element: <Login />,
+      element: (<PageTitle title="Login"><Login /></PageTitle>),
     },
     {
       path: "*",
