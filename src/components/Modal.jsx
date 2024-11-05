@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import done from "../assets/Group.png"
 import { toast } from "react-toastify"
+import CartContext from "../context/CartContext"
 
 const Modal = ({ setOpenModal, totalPrice })=>{
 
@@ -8,6 +9,7 @@ const Modal = ({ setOpenModal, totalPrice })=>{
   const navigate = useNavigate()
 
   const closeModal = ()=>{
+      
     setOpenModal(false)
     localStorage.removeItem("cart");
     localStorage.removeItem("wislist");

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from '../components/Navbar'
 import { Footer } from '../components/Footer';
 import  Modal  from '../components/Modal';
@@ -28,17 +28,19 @@ const CartPage = () => {
   } = CartContext()
 
   const [filterProduct, setFIlterProduct] = useState(cart)
-
-  const sorted = ()=>{
-    // const cart2 = JSON.parse(localStorage.getItem("cart"))
-    // setFIlterProduct(cart.sort((a, b) => b.price - a.price));
-    // console.log(cart2)
- 
-    
-  }
+const navigate= useNavigate()
   
   const handlPurchase = ()=>{
-setOpenModal(!openModal)
+    if (totalPrice === 0 || cart?.length === 0) {
+      toast.error("please  purchase your products go to home page")
+      setTimeout(()=>{
+        navigate("/")
+
+      },2000)
+      return;
+    } else {
+      setOpenModal(!openModal)
+    }
 
 }
 
