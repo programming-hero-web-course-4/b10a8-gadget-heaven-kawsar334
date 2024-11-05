@@ -69,7 +69,9 @@ setOpenModal(!openModal)
 
 
               <h1 className="text-3xl text-[crimson] font-bold "> Empty Cart List</h1>
-              <Link to="/" className="border rounded-full  py-1 px-4  bg-[crimson] text-white">Add Products </Link>
+            <Link to="/" className="text-blue underline">
+              Go back to Home
+            </Link>
           </div>:
 <>{
               cart?.map((i)=>(

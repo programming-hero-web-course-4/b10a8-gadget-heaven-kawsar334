@@ -13,6 +13,7 @@ import Wishlist from './pages/Wishlist';
 import Login from './pages/Login';
 import About from './pages/About';
 import Statistics from './pages/Statistics';
+import NotFound from './pages/Notfound';
 
 PageTitle
 function App() {
@@ -46,6 +47,7 @@ function App() {
             </PageTitle>
           ),
         },
+        
      
       ],
     },
@@ -86,7 +88,15 @@ function App() {
     {
       path: "/login",
       element: <Login />,
-    }
+    },
+    {
+      path: "*",
+      element: (
+        <PageTitle title="404 Not Found">
+          <NotFound />
+        </PageTitle>
+      ),
+    },
  
   ]);
 

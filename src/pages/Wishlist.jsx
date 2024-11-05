@@ -33,9 +33,11 @@ const Wishlist = () => {
 
        { wishlist?.length=== 0 ?
        
-        <div className="flex flex-col gap-3"> 
+        <div className="flex flex-col justify-center items-center gap-3"> 
               <h1 className="text-4xl   py-1 px-4  "> Empty wishlist</h1>
-              <Link to="/" className="border rounded py-1 px-4  bg-[crimson] text-white">Add  Products </Link>
+                      <Link to="/" className="text-blue underline">
+                          Go back to Home
+                      </Link>
           </div>
        :    <>
               {wishlist?.map((i)=>(
