@@ -1,4 +1,4 @@
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Home from './pages/Home';
@@ -52,7 +52,7 @@ function App() {
     {
       path: "dashboard/",
       element: (
-        <PageTitle title="this is details page">
+        <PageTitle title="Dashboard">
           <Dashboard />
         </PageTitle>
       ),
@@ -60,7 +60,7 @@ function App() {
        {
           path: "cart",
           element: (
-            <PageTitle title="Cart page">
+            <PageTitle title="Cart Lists">
               <CartPage />
             </PageTitle>
           ),
@@ -70,6 +70,14 @@ function App() {
           element: (
             <PageTitle title="wishlist">
               <Wishlist />
+            </PageTitle>
+          ),
+        },
+          {
+          path: "statistics",
+          element: (
+            <PageTitle title="Statistics">
+              <Statistics />
             </PageTitle>
           ),
         }

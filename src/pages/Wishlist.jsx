@@ -3,6 +3,8 @@ import { Footer } from '../components/Footer'
 import DashboardHero from '../components/dashboardComponents/DashboardHero'
 import WishlistHeroContents from '../components/dashboardComponents/WishlistHeroContents'
 import CartContext from '../context/CartContext';
+import { Link, useLocation } from "react-router-dom";
+
 const Wishlist = () => {
     
   const {
@@ -14,6 +16,9 @@ const Wishlist = () => {
     addToParchase,
     descendingProductList,
     sortedProduct,
+    removeFromWishlist,
+    addToCartFromWishlist,
+
   } = CartContext()
 
  
@@ -24,43 +29,40 @@ const Wishlist = () => {
               <h2 className='text-4xl font-bold'>wishlist</h2>
           </div>
           <div className='w-full md:w-[90%] p-7  flex flex-col justify-center items-center gap-4 m-auto'>
-              <div className="w-full md:w-[95%] flex items-center  justify-between p-4 bg-white shadow-md rounded-lg mb-4">
-                  <div className="flex items-start md:items-center flex-col md:flex-row  gap-4">
-                      <img
-                          src="https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg"
-                          alt="Product"
-                          className="mr-4 rounded w-[200px] h-[100px] shadow"
-                      />
-                      <div>
-                          <h2 className="text-xl font-semibold text-gray-800">Product Name</h2>
-                          <p className="text-gray-600">This is a brief description of the product.</p>
-                          <p className="text-gray-800 font-bold">$29.99</p>
-                      </div>
-                  </div>
+            
 
-                  <button className="text-red-600  w-7 h-7 border p-1 flex justify-center items-center rounded-[50%] hover:text-[white] hover:bg-[crimson] hover:border-none ">
-                      <i className="fas fa-times   cursor-pointer" aria-hidden="true"></i>
-                  </button>
-              </div>
+       { wishlist?.length=== 0 ?
+       
+        <div className="flex flex-col gap-3"> 
+              <h1 className="text-4xl   py-1 px-4  "> Empty wishlist</h1>
+              <Link to="/" className="border rounded py-1 px-4  bg-[crimson] text-white">Add  Products </Link>
+          </div>
+       :    <>
+              {wishlist?.map((i)=>(
+                  <div className="w-full md:w-[95%] flex items-center  justify-between p-4 bg-white shadow-md rounded-lg mb-4">
+                    <div className="flex items-start md:items-center flex-col md:flex-row  gap-4" key={i?.product_id}>
+                        <img
+                            src={i?.product_image}
+                            alt="Product"
+                            className="mr-4 rounded w-[200px] h-[100px] shadow"
+                            />
+                        <div>
+                            <h2 className="text-xl font-semibold text-gray-800">{i?.product_title}</h2>
+                            <p className="text-gray-600">{i?.description}</p>
+                            <p className="text-gray-800 font-bold">${i?.price}</p>
+                                      <button className='bg-[#9538E2] w-[80%] md:w-max border rounded-full py-1 px-3 text-[white]  flex justify-center items-center gap-2' onClick={()=>addToCartFromWishlist(i)}>Add To Card</button>
+          
 
-              <div className="w-full md:w-[95%] flex items-center  justify-between p-4 bg-white shadow-md rounded-lg mb-4">
-                  <div className="flex items-start md:items-center flex-col md:flex-row  gap-4">
-                      <img
-                          src="https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg"
-                          alt="Product"
-                          className="mr-4 rounded w-[200px] h-[100px] shadow"
-                      />
-                      <div>
-                          <h2 className="text-xl font-semibold text-gray-800">Product Name</h2>
-                          <p className="text-gray-600">This is a brief description of the product.</p>
-                          <p className="text-gray-800 font-bold">$29.99</p>
-                      </div>
-                  </div>
+                        </div>
+                    </div>
 
-                  <button className="text-red-600  w-7 h-7 border p-1 flex justify-center items-center rounded-[50%] hover:text-[white] hover:bg-[crimson] hover:border-none ">
-                      <i className="fas fa-times   cursor-pointer" aria-hidden="true"></i>
-                  </button>
-              </div>
+                    <button className="text-red-600  w-7 h-7 border p-1 flex justify-center items-center rounded-[50%] hover:text-[white] hover:bg-[crimson] hover:border-none " onClick={()=>removeFromWishlist(i)}>
+                        <i className="fas fa-times   cursor-pointer" aria-hidden="true"></i>
+                    </button>
+                </div>
+            ))}
+            </>}
+
           </div>
       </div>
   )

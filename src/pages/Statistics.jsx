@@ -15,14 +15,14 @@ function Statistics() {
     return (
         <div className="statistics-container" style={{ textAlign: 'center', margin: '2rem' }}>
             <h2 style={{ fontSize: '2rem', color: '#6b46c1' }}>Statistics</h2>
-            <p style={{ color: '#4a5568', marginBottom: '1.5rem' }}>
+            {/* <p style={{ color: '#4a5568', marginBottom: '1.5rem' }}>
                 Explore the latest gadgets that will take your experience to the next level.
                 From smart devices to the coolest accessories, we have it all.
-            </p>
+            </p> */}
 
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', }}>
                 <BarChart
-                    width={600}
+                    width={700}
                     height={300}
                     data={data}
                     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
@@ -32,8 +32,8 @@ function Statistics() {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="Price" fill="#8884d8" />
-                    <Bar dataKey="Total" fill="#82ca9d" />
+                    <Bar dataKey="Price" fill="#9538E2" />
+                    {/* <Bar dataKey="Total" fill="#82ca9d" /> */}
                     <Bar dataKey="Rating" fill="#ffc658" />
                 </BarChart>
             </div>

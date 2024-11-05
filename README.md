@@ -1,7 +1,7 @@
 
 
 ## Links 
-- [GitHub Link](https://github.com/kawsar334/BPL_DREAM_REACTJS.git) 
+- [GitHub Link](https://github.com/programming-hero-web-course-4/b10a8-gadget-heaven-kawsar334) 
 - [Live Link](https://lustrous-cheesecake-c7837e.netlify.app/)
 
 

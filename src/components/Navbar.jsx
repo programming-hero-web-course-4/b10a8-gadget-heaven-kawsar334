@@ -1,11 +1,22 @@
 import React from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { useCartWishlist } from '../context/Contextt';
+import CartContext from '../context/CartContext';
 
 const Navbar = () => {
 
   const location = useLocation();
-  // const { cart, wishlist } = useCartWishlist();
+  const {
+    cart,
+    wishlist,
+    purchase,
+    addToCart,
+    addToWishlist,
+    addToParchase,
+    descendingProductList,
+    sortedProduct,
+  } = CartContext()
+
 
 
   return (
@@ -30,7 +41,7 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-blue border rounded-box z-[1] mt-3 w-52 p-2 shadow">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/">Statistics</Link></li>
+            <li><Link to="/dashboard/statistics">Statistics</Link></li>
             <li><Link to="/dashboard/cart">Dashboard</Link></li>
             <li><Link to="/about">about</Link></li>
             <li><Link to="/login">Login</Link></li>
@@ -42,7 +53,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/">Statistics</Link></li>
+          <li><Link to="/dashboard/statistics">Statistics</Link></li>
           <li><Link to="/dashboard/cart">Dashboard</Link></li>
           <li><Link to="/about">about</Link></li>
           <li><Link to="/login">Login</Link></li>
@@ -54,17 +65,16 @@ const Navbar = () => {
         <Link to="/dashboard/cart" className="relative mr-2">
           <i className="fa-solid fa-cart-arrow-down text-xl"></i>
           <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
-            3
+            {cart?.length}
           </span>
         </Link>
 
         <Link to="/dashboard/wishlist" className="relative">
           <i className="fa-regular fa-heart text-xl"></i>
           <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
-            5
+            {wishlist?.length}
           </span>
         </Link>
-
       </div>
     </div>
   )
