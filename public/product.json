@@ -33,6 +33,23 @@
     "availability": true,
     "rating": 4.7
   },
+    {
+      "product_id": "P021",
+      "product_title": "Samsung Galaxy S23 Ultra",
+      "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfJMWoIZ3RL-eI7g6dQGeFFrQft8oYd-B2RQ&s",
+      "category": "phone",
+      "price": 1199,
+      "description": "Capture incredible detail and clarity with the Samsung Galaxy S23 Ultra.",
+      "specification": [
+        "6.8-inch Dynamic AMOLED 2X display",
+        "Snapdragon 8 Gen 2",
+        "Quad-camera system (200MP Main, 12MP Ultrawide, 10MP Telephoto)",
+        "5000mAh battery",
+        "1TB storage option"
+      ],
+      "availability": true,
+      "rating": 4.7
+    },
   {
     "product_id": "P003",
     "product_title": "Dell XPS 13",
@@ -54,6 +71,23 @@
     "product_id": "P004",
     "product_title": "Apple MacBook Pro 14-inch",
     "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZEz_ZwG6zX8IlEE3uy_CZSLgM1FpJJXdQpQ&s",
+    "category": "MacBook",
+    "price": 1999,
+    "description": "Powerful performance with Apple's M2 Pro chip on the 14-inch MacBook Pro.",
+    "specification": [
+      "14-inch Liquid Retina XDR display",
+      "M2 Pro chip",
+      "16GB RAM",
+      "512GB SSD",
+      "Thunderbolt 4 ports"
+    ],
+    "availability": true,
+    "rating": 4.9
+  },
+  {
+    "product_id": "P022",
+    "product_title": "Apple MacBook Pro 14-inch",
+    "product_image": "https://m.media-amazon.com/images/I/41yLHpZq2xL.jpg",
     "category": "MacBook",
     "price": 1999,
     "description": "Powerful performance with Apple's M2 Pro chip on the 14-inch MacBook Pro.",
