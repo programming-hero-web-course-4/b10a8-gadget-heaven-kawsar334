@@ -1,4 +1,3 @@
-// src/components/Statistics.js
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
@@ -15,10 +14,10 @@ function Statistics() {
     return (
         <div className="statistics-container" style={{ textAlign: 'center', margin: '2rem' }}>
             <h2 style={{ fontSize: '2rem', color: '#6b46c1' }}>Statistics</h2>
-            {/* <p style={{ color: '#4a5568', marginBottom: '1.5rem' }}>
+            <p style={{ color: '#4a5568', marginBottom: '1.5rem' }}>
                 Explore the latest gadgets that will take your experience to the next level.
                 From smart devices to the coolest accessories, we have it all.
-            </p> */}
+            </p>
 
             <div style={{ display: 'flex', justifyContent: 'center', }}>
                 <BarChart

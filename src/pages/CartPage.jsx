@@ -27,7 +27,16 @@ const CartPage = () => {
     totalPrice,
   } = CartContext()
 
+  const [filterProduct, setFIlterProduct] = useState(cart)
 
+  const sorted = ()=>{
+    // const cart2 = JSON.parse(localStorage.getItem("cart"))
+    // setFIlterProduct(cart.sort((a, b) => b.price - a.price));
+    // console.log(cart2)
+ 
+    
+  }
+  
   const handlPurchase = ()=>{
 setOpenModal(!openModal)
 
@@ -38,7 +47,7 @@ setOpenModal(!openModal)
   return (
     <div className='w-full'>
       <DashboardHero Contents={CartHeroContents} />
-      {openModal && <Modal setOpenModal={setOpenModal}/>}
+      {openModal && <Modal setOpenModal={setOpenModal} totalPrice={totalPrice}/>}
    
       <div className='flex justify-between items-start md:items-center w-[90%] md:w-[80%] m-auto my-7 flex-col md:flex-row '>
         <h2 className='text-2xl font-bold'>Cart</h2>
@@ -63,7 +72,7 @@ setOpenModal(!openModal)
               <Link to="/" className="border rounded-full  py-1 px-4  bg-[crimson] text-white">Add Products </Link>
           </div>:
 <>{
-          cart?.map((i)=>(
+              cart?.map((i)=>(
             <div className="w-full md:w-[95%] flex items-center  justify-between p-4 bg-white shadow-md rounded-lg mb-4">
               <div className="flex items-start md:items-center flex-col md:flex-row  gap-4" key={i?.product_id}>
                 <img

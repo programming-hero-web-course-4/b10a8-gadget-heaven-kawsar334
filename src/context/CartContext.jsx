@@ -3,15 +3,15 @@ import { toast } from 'react-toastify';
 
 const CartContext = () => {
  const [totalPrice, setTotalPrice] = useState(0);
-    const [cart, setCart] = useState((prev) => {
+    const [cart, setCart] = useState(() => {
         const storedCart = localStorage.getItem('cart');
         return storedCart ? JSON.parse(storedCart) : [];
     });
-    const [wishlist, setWishlist] = useState((prev) => {
+    const [wishlist, setWishlist] = useState(() => {
         const storedWishlist = localStorage.getItem("wislist");
         return storedWishlist ? JSON.parse(storedWishlist) : []
     });
-    const [purchase, setParchase] = useState((prev) => {
+    const [purchase, setParchase] = useState(() => {
         const storedPurchase = localStorage.getItem("purchase");
         return storedPurchase ? JSON.parse(storedPurchase) : []
     });
@@ -21,21 +21,29 @@ const CartContext = () => {
 
     const addToCart = (item) => {
         setCart((prev) => {
-            // const updatedCart = [...prev, item];
-                   const updatedCart = [...prev, item].sort((a, b) => b.price - a.price);
+            const updatedCart = [...prev, item];
+                //    const updatedCart = [...prev, item].sort((a, b) => b.price - a.price);
             localStorage.setItem('cart', JSON.stringify(updatedCart));
             toast.success(`${item?.product_title} added to cart ! `);
             return updatedCart;
         })
+        setTimeout(() => {
+            window.location.reload()
+        }, 2000);
     }
 
     const addToWishlist = (item) => {
         setWishlist((prev) => {
             const updatedWishList = [...prev, item].sort((a, b) => b.price - a.price);
             localStorage.setItem("wislist", JSON.stringify(updatedWishList))
+            toast.success(`added ${item?.product_title} to wishlist ! `)
+            return updatedWishList;
         })
 
-        toast.success(`added ${item?.product_title} to wishlist ! `)
+        setTimeout(() => {
+            window.location.reload()
+        }, 2000);
+        
     }
 
 
@@ -47,13 +55,16 @@ const CartContext = () => {
         })
 
     }
-    // descending product list
+    // descending  list
     const descendingProductList = () => {
-        setCart(cart.sort((a, b) => b.price - a.price))
-        toast.success("Sorted product List");
+        const sortedCart = [...cart].sort((a, b) => b.price - a.price); 
+        setCart(sortedCart);
+        localStorage.setItem("cart", JSON.stringify(sortedCart));
+        toast.success("Sorted product list");
+
     }
 
-    // remove from card   
+    // remove from card   func... 
     const removeFromCart = (itemId) => {
         setCart((prev) => {
             const updatedCart = prev.filter(item => item?.product_id !== itemId.product_id);
@@ -63,7 +74,7 @@ const CartContext = () => {
         });
     };
 
-    // Remove from wishlist
+    // Remove from wishlist..
     const removeFromWishlist = (itemId) => {
         setWishlist((prev) => {
             const updatedWishlist = prev.filter(item => item?.product_id !== itemId.product_id);
@@ -89,11 +100,10 @@ const CartContext = () => {
         setTotalPrice(calculateTotalPrice());
     }, [cart]);
 
-// addToCartFromWishlist
+// addTo ccart FromWishlist
     const addToCartFromWishlist = (itemId) => {
     setWishlist((prevWishlist) => {
         const item = prevWishlist.find(wishItem => wishItem.product_id === itemId.product_id);
-
         if (item) {
             setCart((prevCart) => {
                 const updatedCart = [...prevCart, item].sort((a, b) => b.price - a.price);
@@ -101,7 +111,6 @@ const CartContext = () => {
                 toast.success(`${item?.product_title} added to cart from wishlist!`);
                 return updatedCart;
             });
-
             const updatedWishlist = prevWishlist.filter(wishItem => wishItem.product_id !== itemId.product_id);
             localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
             return updatedWishlist;
