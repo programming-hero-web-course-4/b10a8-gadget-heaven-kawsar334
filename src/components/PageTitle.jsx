@@ -1,8 +1,10 @@
 
 import { useEffect } from "react";
 
+
 function PageTitle({ title, children }) {
-    useEffect(() => {
+
+        useEffect(() => {
         document.title = title;
     }, [title]);
 

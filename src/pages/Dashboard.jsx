@@ -3,11 +3,14 @@ import Navbar from '../components/Navbar'
 import { Footer } from '../components/Footer'
 import { Outlet } from 'react-router-dom'
 import DashboardHero from '../components/dashboardComponents/DashboardHero'
+import CartContext from '../context/CartContext'
 
 const Dashboard = () => {
+    const { cartData, } = CartContext()
+
     return (
         <div>
-            <Navbar />
+            <Navbar cartData={cartData}/>
             <Outlet />
             <Footer />
 

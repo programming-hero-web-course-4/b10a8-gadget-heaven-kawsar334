@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { useCartWishlist } from '../context/Contextt';
 import CartContext from '../context/CartContext';
@@ -6,15 +6,20 @@ import CartContext from '../context/CartContext';
 const Navbar = () => {
   const location = useLocation();
   const [open, setOpen] = useState(false);
+ 
 
   const {
     cart,
     wishlist,
     totalPrice,
+    
   } = CartContext();
+  
+ 
 
   const getActiveClass = (path) =>
     location.pathname === path ? 'bg-blue-500 bg-[purple] rounded-full' : '';
+  
 
   return (
     <div className={`${location.pathname === "/" ? "navbar bg-blue text-[white] sticky top-0 left-0 z-30" : "navbar bg-[white] text-[black] sticky top-0 left-0 z-30"} `}>
@@ -59,7 +64,7 @@ const Navbar = () => {
         <Link to="/dashboard/cart" className="relative mr-2">
           <i className="fa-solid fa-cart-arrow-down text-xl"></i>
           <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
-            {cart?.length}
+            {cart.length}
           </span>
         </Link>
 
@@ -72,7 +77,7 @@ const Navbar = () => {
             <div className={`${location.pathname === "/" ? 'absolute top-[40px] md:top-[24px] lg:top-[40px] bg-white border rounded p-3 left-[-100px] md:left-[10px] lg:left-[0px] w-[200px] h-max' : 'absolute top-[40px] md:top-[24px] lg:top-[40px] bg-blue border rounded p-3 left-[-100px] md:left-[10px] lg:left-[0px] w-[200px] h-max'}`}>
               <p className={`${location.pathname === "/" ? 'text-blue font-bold w-full text-left mb-1 text-[14px]' : 'text-white font-bold w-full text-left mb-1 text-[14px]'}`}>you added <span className='text-red-500'>{wishlist?.length}</span> item  wislist </p>
               <p className={`${location.pathname === "/" ? 'text-blue font-bold w-full text-left mb-1 text-[14px]' : 
-                'text-white font-bold w-full text-left mb-1 text-[14px]'}`}>Added to cart: <span className='text-red-500'>{cart?.length}</span></p>
+                'text-white font-bold w-full text-left mb-1 text-[14px]'}`}>Added to cart: <span className='text-red-500'>{cart.length}</span></p>
               <p className={`${location.pathname === "/" ? 'text-blue font-bold w-full text-left mb-1 text-[14px]' : 'text-white font-bold w-full text-left mb-1 text-[14px]'}`}>Total Amount: <span className='text-red-500' >${totalPrice}</span></p>
             </div>
           )}
