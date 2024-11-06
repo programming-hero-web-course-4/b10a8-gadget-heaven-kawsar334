@@ -2,7 +2,7 @@ import React from 'react'
 import { Footer } from '../components/Footer'
 import DashboardHero from '../components/dashboardComponents/DashboardHero'
 import WishlistHeroContents from '../components/dashboardComponents/WishlistHeroContents'
-import CartContext from '../context/CartContext';
+import CartContext from '../context/CartStorage';
 import { Link, useLocation } from "react-router-dom";
 
 const Wishlist = () => {
@@ -52,13 +52,13 @@ const Wishlist = () => {
                             <h2 className="text-xl font-semibold text-gray-800">{i?.product_title}</h2>
                             <p className="text-gray-600">{i?.description}</p>
                             <p className="text-gray-800 font-bold">${i?.price}</p>
-                                      <button className='bg-[#9538E2] w-[80%] md:w-max border rounded-full py-1 px-3 text-[white]  flex justify-center items-center gap-2' onClick={()=>addToCartFromWishlist(i)}>Add To Card</button>
+                              <button className='bg-[#9538E2] w-[80%] md:w-max border rounded-full py-1 px-3 text-[white]  flex justify-center items-center gap-2' onClick={() => addToCart(i)}>Add To Card</button>
           
 
                         </div>
                     </div>
 
-                    <button className="text-red-600  w-7 h-7 border p-1 flex justify-center items-center rounded-[50%] hover:text-[white] hover:bg-[crimson] hover:border-none " onClick={()=>removeFromWishlist(i)}>
+                      <button className="text-red-600  w-7 h-7 border p-1 flex justify-center items-center rounded-[50%] hover:text-[white] hover:bg-[crimson] hover:border-none " onClick={() => removeFromWishlist(i)}>
                         <i className="fas fa-times   cursor-pointer" aria-hidden="true"></i>
                     </button>
                 </div>

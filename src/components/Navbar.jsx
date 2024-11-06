@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
-import { useCartWishlist } from '../context/Contextt';
-import CartContext from '../context/CartContext';
+import CartContext from '../context/CartStorage';
 
 const Navbar = () => {
   const location = useLocation();

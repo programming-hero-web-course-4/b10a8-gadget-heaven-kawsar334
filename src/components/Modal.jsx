@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import done from "../assets/Group.png"
 import { toast } from "react-toastify"
-import CartContext from "../context/CartContext"
+import CartContext from "../context/CartStorage"
 
 const Modal = ({ setOpenModal, totalPrice })=>{
 

@@ -9,15 +9,19 @@ const CartContext = () => {
     const [wishlist, setWishlist] = useState([]);
 
     useEffect(() => {
-        setWishlist(() => {
-            const storedWishlist = localStorage.getItem("wislist");
-            return storedWishlist ? JSON.parse(storedWishlist) : []
-        });
+   
         setCart(() => {
             const storedCart = localStorage.getItem('cart');
             return storedCart ? JSON.parse(storedCart) : [];
         })
+        setWishlist(() => {
+            const storedWishlist = localStorage.getItem("wislist");
+            return storedWishlist ? JSON.parse(storedWishlist) : []
+        });
     }, [wishlist, cart])
+
+  
+    
     const [purchase, setParchase] = useState(() => {
         const storedPurchase = localStorage.getItem("purchase");
         return storedPurchase ? JSON.parse(storedPurchase) : []
@@ -28,27 +32,52 @@ const CartContext = () => {
 
     const addToCart = (item) => {
         setCart((prev) => {
-            const updatedCart = [...prev, item];
-            //    const updatedCart = [...prev, item].sort((a, b) => b.price - a.price);
-            localStorage.setItem('cart', JSON.stringify(updatedCart));
-            toast.success(`${item?.product_title} added to cart ! `, {
-                 position: "top-center" 
-            });
-            return updatedCart;
-        })
+            const itemExists = prev.some((cartItem) => cartItem.product_id === item.product_id);
 
-    }
+            if (itemExists) {
+                toast.warn(`${item?.product_title} is already in the cart!`, {
+                    position: "top-center"
+                });
+                return prev; 
+            } else {
+                const updatedCart = [...prev, item];
+                localStorage.setItem('cart', JSON.stringify(updatedCart));
+                toast.success(`${item?.product_title} added to cart!`, {
+                    position: "top-center"
+                });
+                return updatedCart;
+            }
+        });
+        // console.log(item.product_id)
+        setWishlist((prevWishlist) => {
+            const updatedWishlist = prevWishlist.filter(
+                (wishlistItem) => wishlistItem.product_id !== item.product_id 
+            );
+            localStorage.setItem('wislist', JSON.stringify(updatedWishlist));
+            return updatedWishlist;
+        });
+    };
+   
 
+
+// add wislitt
     const addToWishlist = (item) => {
         setWishlist((prev) => {
-            const updatedWishList = [...prev, item].sort((a, b) => b.price - a.price);
-            localStorage.setItem("wislist", JSON.stringify(updatedWishList))
-            toast.success(`added ${item?.product_title} to wishlist ! `, {
-                position: "top-center"
-            })
-            return updatedWishList;
+            const itemExists = prev.some((wishItem) => wishItem.product_id === item.product_id);
+            if(itemExists){
+                toast.warn(`${item?.product_title} is already in the wishlist!`, {
+                    position: "top-center"
+                });
+                return prev;
+            }else{
+                const updatedWishlist = [...prev, item];
+                localStorage.setItem('wislist', JSON.stringify(updatedWishlist));
+                toast.success(`${item?.product_title} added to wishlist!`, {
+                    position: "top-center"
+                });
+                return updatedWishlist;
+            }
         })
-
     }
 
 
@@ -91,11 +120,12 @@ const CartContext = () => {
         });
     };
 
-    // Remove from wishlist..
+    // Remove from wwwshlist..
     const removeFromWishlist = (itemId) => {
+        console.log(itemId.product_id)
         setWishlist((prev) => {
             const updatedWishlist = prev.filter(item => item?.product_id !== itemId.product_id);
-            localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+            localStorage.setItem("wislist", JSON.stringify(updatedWishlist));
             toast.error(`you removed ${itemId.product_title} .. from wislist List`, {
                 position: "top-center"
             })
@@ -120,10 +150,6 @@ const CartContext = () => {
     }, [cart]);
 
 
-
-
-
-    // addTo ccart FromWishlist
     const addToCartFromWishlist = (itemId) => {
         setWishlist((prevWishlist) => {
             const item = prevWishlist.find(wishItem => wishItem.product_id === itemId.product_id);
@@ -131,19 +157,20 @@ const CartContext = () => {
                 setCart((prevCart) => {
                     const updatedCart = [...prevCart, item].sort((a, b) => b.price - a.price);
                     localStorage.setItem('cart', JSON.stringify(updatedCart));
-                    toast.success(`${item?.product_title} added to cart from wishlist!`, {
-                        position: "top-center"
-                    });
+                    toast.success(`${item?.product_title} added to cart from wishlist!`, { position: "top-center" });
                     return updatedCart;
                 });
                 const updatedWishlist = prevWishlist.filter(wishItem => wishItem.product_id !== itemId.product_id);
-                localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+                localStorage.setItem('wislist', JSON.stringify(updatedWishlist));
                 return updatedWishlist;
             }
-
             return prevWishlist;
         });
     };
+
+
+
+
     return {
         cart,
         totalPrice,

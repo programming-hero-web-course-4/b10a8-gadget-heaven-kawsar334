@@ -14,7 +14,7 @@ import Login from './pages/Login';
 import About from './pages/About';
 import Statistics from './pages/Statistics';
 import NotFound from './pages/Notfound';
-import CartContext from './context/CartContext';
+import CartContext from './context/CartStorage';
 
 function App() {
 

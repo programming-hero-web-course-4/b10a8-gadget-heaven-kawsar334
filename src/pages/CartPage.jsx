@@ -6,7 +6,7 @@ import  Modal  from '../components/Modal';
 
 import DashboardHero from '../components/dashboardComponents/DashboardHero'
 import CartHeroContents from '../components/dashboardComponents/CartHeroContents'
-import CartContext from '../context/CartContext';
+import CartContext from '../context/CartStorage';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const CartPage = () => {
