@@ -1,6 +1,7 @@
 ## Links
 - [GitHub Link](https://github.com/programming-hero-web-course-4/b10a8-gadget-heaven-kawsar334)
 - [Live Link](https://deft-kelpie-0f29a9.netlify.app/)
+- [Project requirement document link:](./Batch-10_Assignment-08.pdf)
 
 ### Description
 - Gadget Heaven is a web application designed for gadget enthusiasts, allowing users to explore various products, view details, and manage items in their cart and wishlist. The site also features a dashboard for users to track statistics and interact with product data.
